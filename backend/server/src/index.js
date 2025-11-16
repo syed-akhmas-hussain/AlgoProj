@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const { runHandler } = require("./handlers/runHandlers.js");
+const runHandler = require("./handlers/runHandlers.js");
 
 const app = express();
 app.use(express.json());
@@ -10,7 +10,6 @@ app.use(cors());
 
 // Datasets directory
 const datasetsDir = path.join(__dirname, "../../datasets");
-
 // GET /files → list dataset files
 app.get("/files", (req, res) => {
   const classes = ["closest_pair", "integer_mul"];

@@ -4,15 +4,13 @@ const path = require("path");
 const closestPair = require("../algorithms/closestPair.js");
 const karatsuba = require("../algorithms/karatsuba.js");
 
-const datasetsDir = path.join(process.cwd(), '..', 'datasets');
-
 async function runHandler(type, filename) {
+  const datasetsDir = path.join(__dirname, "../../../datasets");
   const filePath = path.join(
     datasetsDir,
     type === 'closest_pair' ? 'closest_pair' : 'integer_mul',
     filename
   );
-
   if (!fs.existsSync(filePath)) {
     throw new Error('File not found');
   }
@@ -53,4 +51,4 @@ async function runHandler(type, filename) {
   };
 }
 
-module.exports = { runHandler };
+module.exports = runHandler;
